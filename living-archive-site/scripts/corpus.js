@@ -40,10 +40,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const list = document.getElementById('corpus-list');
   const content = corpus[keyword] || ['未找到该关键词对应的语料。'];
-
   content.forEach(item => {
     const li = document.createElement('li');
     li.textContent = item;
     list.appendChild(li);
+  });
+
+  // 搜索逻辑
+  const searchBtn = document.getElementById('search-btn');
+  const searchInput = document.getElementById('search-input');
+  const searchResult = document.getElementById('search-result');
+
+  searchBtn.addEventListener('click', () => {
+    const query = searchInput.value.trim();
+    if (!query) return;
+
+    const results = content.filter(sentence => sentence.includes(query)).slice(0, 3);
+    searchResult.innerHTML = "<h3>搜索结果：</h3><ul>" +
+      (results.length > 0 ? results.map(r => `<li>${r}</li>`).join('') : "<li>没有找到相关句子。</li>") +
+      "</ul>";
   });
 });
