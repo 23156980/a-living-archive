@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "AI与情绪识别"
     ],
     colonialism: [
-      "殖民主义的空间遗产",
+      "殖民的空间遗产",
       "后殖民城市设计",
       "地名中的殖民记忆"
     ],
